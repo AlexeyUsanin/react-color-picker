@@ -1,0 +1,52 @@
+.range
+  display: flex
+  align-items: center
+  margin-bottom: 5px
+  label
+    color: #000
+    width: 75px
+  input
+    display: inline
+    -webkit-appearance: none
+    height: 5px
+    border-radius: 5px
+    background: #d3d3d3
+    outline: none
+    -webkit-transition: .2s
+    transition: opacity .2s
+    width: 100%
+    margin-left: 15px
+    &[name="red"]
+      background: linear-gradient(to right, rgb(0,0,0) , rgb(255,0,0))
+    &[name="green"]
+      background: linear-gradient(to right, rgb(0,0,0) , rgb(0,255,0))
+    &[name="blue"]
+      background: linear-gradient(to right, rgb(0,0,0) , rgb(0,0,255))
+    &::-webkit-slider-thumb
+      -webkit-appearance: none
+      appearance: none
+      width: 15px
+      height: 15px
+      border-radius: 50%
+      background: #8b7a6b
+      cursor: pointer
+      border: 2px solid #000
+
+.slider
+  width: 300px
+  padding: 15px
+  &-buttons
+    display: flex
+    justify-content: flex-end
+    &__btn
+      font-size: 14px
+      padding: 4px 12px
+      color: #fff
+      border: 1px solid
+      cursor: pointer
+      &.cancel
+        background-color: #9a8d82
+      &.submit
+        background-color: green
+      & + .slider-buttons__btn
+        margin-left: 5px

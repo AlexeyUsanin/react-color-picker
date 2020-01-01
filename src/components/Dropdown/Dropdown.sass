@@ -1,0 +1,59 @@
+.dropdown
+  height: 40px
+  width: 40px
+  text-align: center
+  position: relative
+  & + .dropdown
+    border-left: 2px solid #cfc7c0
+  &-header
+    width: 42px
+    height: 42px
+    cursor: pointer
+    display: flex
+    align-items: center
+    justify-content: center
+    &__icon
+      border: solid #cfc7c0
+      border-width: 0 3px 3px 0
+      display: inline-block
+      padding: 3px
+      transform: rotate(45deg)
+      &.open
+        transform: rotate(-135deg)
+    &__square
+      width: 25px
+      height: 25px
+      border: 1px solid #cfc7c0
+  &-menu
+    box-shadow: 0px 1px 2px 2px rgba(0,0,0,0.15)
+    position: absolute
+    min-width: 200px
+    min-height: 40px
+    background-color: #fff
+    transform: translate(-50%, 15px)
+    font-size: 20px
+    &:before
+      content: ""
+      position: absolute
+      margin-left: 11px
+      top: -10px
+      width: 0
+      height: 0
+      border-style: solid
+      border-width: 0 10px 10px 10px
+      border-color: transparent transparent rgba(0, 0, 0, .15) transparent
+      z-index: 9999
+    &__item
+      color: #000
+      padding: 10px
+      display: flex
+      justify-content: space-between
+      align-items: center
+      cursor: pointer
+      border-bottom: 1px solid #cfc7c0
+      &:hover
+        background: rgba(#cfc7c0, 0.5)
+      .color
+        width: 20px
+        height: 20px
+        background: red
