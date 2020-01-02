@@ -1,7 +1,7 @@
-import React, { useState, useEffect, useRef } from 'react';
-import cx from 'classnames';
+import React, { useState, useEffect, useRef } from "react";
+import cx from "classnames";
 
-import './Dropdown.sass';
+import "./Dropdown.sass";
 
 const Dropdown = ({ list, onChange }) => {
   const dropdown = useRef();
@@ -9,45 +9,46 @@ const Dropdown = ({ list, onChange }) => {
 
   const handleClick = e => {
     if (dropdown.current.contains(e.target)) {
-      return
+      return;
     }
 
-    setOpen(false)
-  }
+    setOpen(false);
+  };
 
-  const handleChange = (selectedValue) => {
-    onChange(selectedValue)
-    setOpen(false)
-  }
+  const handleChange = selectedValue => {
+    onChange(selectedValue);
+    setOpen(false);
+  };
 
   useEffect(() => {
-    document.addEventListener('click', handleClick)
+    document.addEventListener("click", handleClick);
 
     return () => {
-      document.removeEventListener('click', handleClick)
-    }
-  }, [])
+      document.removeEventListener("click", handleClick);
+    };
+  }, []);
 
   return (
-    <div className='dropdown' ref={dropdown}>
-      <div className='dropdown-header' onClick={() => setOpen(!open)}>
-        <div className={cx('dropdown-header__icon', { open })} />
+    <div className="dropdown" ref={dropdown}>
+      <div className="dropdown-header" onClick={() => setOpen(!open)}>
+        <div className={cx("dropdown-header__icon", { open })} />
       </div>
       {open && (
-        <div className='dropdown-menu'>
+        <div className="dropdown-menu">
           {list.map(({ name, color }) => (
             <div
-              className='dropdown-menu__item'
+              className="dropdown-menu__item"
               onClick={() => handleChange(color)}
-              key={name}>
-              <div className='text'>{name}</div>
-              <div className='color' style={{ background: color }} />
+              key={name}
+            >
+              <div className="text">{name}</div>
+              <div className="color" style={{ background: color }} />
             </div>
           ))}
         </div>
       )}
     </div>
-  )
-}
+  );
+};
 
-export default Dropdown
+export default Dropdown;
